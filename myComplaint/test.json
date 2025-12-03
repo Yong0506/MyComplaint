@@ -1,0 +1,2229 @@
+
+
+{
+  "agency_users": {
+    "-OevquMRj9QBNYgkGAia": {
+      "AdminID": "-OevquMRj9QBNYgkGAia",
+      "contactNo": "0145556666",
+      "departmentID": "dept_dbkl",
+      "email": "dbkl3@agency.local",
+      "lastLogin": "2025-12-02T07:41:39.746100+00:00",
+      "name": "DBKL Tre",
+      "passwordHash": "$2b$12$.wNd35CYjEX2N6ikZILl8u0ADy2r3Yujxsa2ycNV.g7/okC4jOFb6",
+      "role": "Staff",
+      "username": "dbklstuff"
+    },
+    "-Oevy8UidAsqliv_tz9O": {
+      "AdminID": "-Oevy8UidAsqliv_tz9O",
+      "contactNo": "0112234399",
+      "departmentID": "dept_kdebwm",
+      "email": "dbkl4@agency.local",
+      "lastLogin": "2025-12-02T07:44:26.958939+00:00",
+      "name": "DBKL Four",
+      "passwordHash": "$2b$12$Wy5kZ3JcscDc8A.sXRELmOuZ9IijfX/qoTEljCePL6/PizKSVqCLG",
+      "role": "Staff",
+      "username": "dbklstaff"
+    },
+    "admin_1": {
+      "AdminID": "admin_1",
+      "contactNo": "0123456789",
+      "departmentID": "",
+      "email": "admin@agency.local",
+      "lastLogin": "2025-12-02T07:44:56.441351+00:00",
+      "name": "Super Admin",
+      "passwordHash": "$2b$12$hOe9u8z9U60BVjQBoL4fxuv8VdoyZ42LAbQGls5s/pZLeE9cXuEUe",
+      "role": "Admin",
+      "username": "admin"
+    },
+    "staff_dbkl_1": {
+      "AdminID": "staff_dbkl_1",
+      "contactNo": "0112224333",
+      "departmentID": "dept_dbkl",
+      "email": "dbkl2@agency.local",
+      "lastLogin": "2025-12-02T01:40:34.424847+00:00",
+      "name": "DBKL Staff Two",
+      "passwordHash": "$2b$12$Vo1ElUvzlBwQfw0vRrBL5Oh7KVN7NEWoZ5eRONmYGuImdciSlcUlq",
+      "role": "Staff",
+      "username": "dbklstafffs"
+    },
+    "staff_kdebwm_1": {
+      "AdminID": "staff_kdebwm_1",
+      "contactNo": "",
+      "departmentID": "dept_kdebwm",
+      "email": "kdebwm1@agency.local",
+      "lastLogin": "2025-12-02T07:42:00.821682+00:00",
+      "name": "KDEBWM Staff One",
+      "passwordHash": "$2b$12$A4XIfcAZ8LKIEbMwPhugQ.5GFcbjY03zjXoCS7evmhepplfStSneu",
+      "role": "Staff",
+      "username": "kdebwmstaffs"
+    },
+    "staff_pcb_1": {
+      "AdminID": "staff_pcb_1",
+      "contactNo": "0145556666",
+      "departmentID": "dept_pcb",
+      "email": "pcb1@agency.local",
+      "lastLogin": "2025-12-02T01:19:58.359606+00:00",
+      "name": "PCB Staff Ones",
+      "passwordHash": "$2b$12$1K5wvlTQ7zTL9jnGZgua4eHnf1lbLQWxBkEvoyUeW8F8t.mT/jbe6",
+      "role": "Staff",
+      "username": "pcbstaff"
+    },
+    "staff_rapidkl_1": {
+      "AdminID": "staff_rapidkl_1",
+      "contactNo": "0172223333",
+      "departmentID": "dept_rapidkl",
+      "email": "rapidkl1@agency.local",
+      "lastLogin": "2025-12-02T01:18:57.432909+00:00",
+      "name": "RapidKL Staff One",
+      "passwordHash": "$2b$12$0E/JonVcpel9XWWNQaKs/.yjTDcoLWNDwe7kvMMYq.3sqBuccnu6G",
+      "role": "Staff",
+      "username": "rapidstaff"
+    },
+    "staff_works_1": {
+      "AdminID": "staff_works_1",
+      "contactNo": "0164445555",
+      "departmentID": "dept_works",
+      "email": "works1@agency.local",
+      "lastLogin": "2025-12-02T07:09:36.383802+00:00",
+      "name": "Works Staff One",
+      "passwordHash": "$2b$12$eLkHbQfLyciMltSk99qBLuaQJXIhuymFSH88XpL6RHgoQR/R4iVh.",
+      "role": "Staff",
+      "username": "worksstaff"
+    }
+  },
+  "complaints": {
+    "-CNov001": {
+      "address": "Jalan Air Murni, Setapak",
+      "agency": "dept_dbkl",
+      "image": "",
+      "message": "Water level rises quickly during heavy rain.",
+      "photoLocation": "Jalan Air Murni",
+      "priority": "Critical",
+      "status": "resolved",
+      "timestamp": "03/11/2025, 17:41:55",
+      "title": "Street Flooding",
+      "userEmail": "user6@example.com"
+    },
+    "-CNov002": {
+      "address": "Taman Danau Kota Lake Park",
+      "agency": "dept_dbkl",
+      "image": "",
+      "message": "A large tree branch fell across the walkway.",
+      "photoLocation": "Danau Kota",
+      "priority": "Critical",
+      "status": "in_progress",
+      "timestamp": "12/11/2025, 13:25:34",
+      "title": "Collapsed Tree Branch",
+      "userEmail": "user2@example.com"
+    },
+    "-CNov003": {
+      "address": "Jalan 2/27A, Wangsa Maju",
+      "agency": "dept_works",
+      "image": "",
+      "message": "Rubbish collection truck did not come for 3 days.",
+      "photoLocation": "Wangsa Maju",
+      "priority": "Medium",
+      "status": "in_progress",
+      "timestamp": "19/11/2025, 09:44:12",
+      "title": "Uncollected Rubbish Bags",
+      "userEmail": "user3@example.com"
+    },
+    "-COct001": {
+      "address": "Jalan Ketapang, Setapak",
+      "agency": "dept_pcb",
+      "image": "",
+      "message": "Drain is clogged causing water pooling after rain.",
+      "photoLocation": "Jalan Ketapang",
+      "priority": "High",
+      "status": "in_progress",
+      "timestamp": "02/10/2025, 10:05:19",
+      "title": "Blocked Drain",
+      "userEmail": "user4@example.com"
+    },
+    "-COct002": {
+      "address": "SK Taman Melati, Kuala Lumpur",
+      "agency": "dept_dbkl",
+      "image": "",
+      "message": "Cars parked at no-parking zone near school entrance.There's currently nobody inside the car.I already horned for a long time because the car is double-parking in front of my parked car.There's no security in the area to help me with the car.",
+      "photoLocation": "Taman Melati",
+      "priority": "Medium",
+      "status": "resolved",
+      "timestamp": "14/10/2025, 07:32:45",
+      "title": "Illegal Parking",
+      "userEmail": "user1@example.com"
+    },
+    "-COct003": {
+      "address": "Public Playground, Setapak Jaya",
+      "agency": "dept_works",
+      "image": "",
+      "message": "The swing seat is cracked and dangerous for kids.",
+      "photoLocation": "Setapak Jaya Playground",
+      "priority": "High",
+      "status": "resolved",
+      "timestamp": "21/10/2025, 16:18:07",
+      "title": "Broken Playground Swing",
+      "userEmail": "user5@example.com"
+    },
+    "-CSept001": {
+      "address": "Jalan 4/12, Taman Sri Rampai, Kuala Lumpur",
+      "agency": "dept_mow",
+      "image": "",
+      "message": "The street light near the junction keeps flickering at night.",
+      "photoLocation": "Jalan 4/12, Taman Sri Rampai",
+      "priority": "Medium",
+      "status": "unresolved",
+      "timestamp": "12/09/2025, 19:34:11",
+      "title": "Damaged Street Light",
+      "userEmail": "user1@example.com"
+    },
+    "-OfEQ13Qqr2SfvkjgsIo": {
+      "address": "Platinum Walk, No. 52-3, Jalan Langkawi, Kuala Lumpur, Wilayah Persekutuan, 53300, Malaysia",
+      "agency": "dept_dbkl",
+      "image": "",
+      "message": "Nanannanana",
+      "photoLocation": "Platinum Walk, No. 52-3, Jalan Langkawi, Kuala Lumpur, Wilayah Persekutuan, 53300, Malaysia",
+      "priority": "Low",
+      "status": "in_progress",
+      "timestamp": "29/11/2025, 19:42:41",
+      "title": "Testingg",
+      "userEmail": "wenghong0506@gmail.com"
+    },
+    "-OfETr15HSthcHAvSm0h": {
+      "address": "Platinum Walk, No. 52-3, Jalan Langkawi, Kuala Lumpur, Wilayah Persekutuan, 53300, Malaysia",
+      "agency": "dept_pcb",
+      "image": "",
+      "message": "Kalalalalala",
+      "photoLocation": "Platinum Walk, No. 52-3, Jalan Langkawi, Kuala Lumpur, Wilayah Persekutuan, 53300, Malaysia",
+      "priority": "Low",
+      "status": "in_progress",
+      "timestamp": "29/11/2025, 19:59:24",
+      "title": "okok",
+      "userEmail": "wenghong0506@gmail.com"
+    },
+    "-OfO9ayKTGTyFn6MA5Zf": {
+      "address": "Platinum Walk, No. 52-3, Jalan Langkawi, Kuala Lumpur, Wilayah Persekutuan, 53300, Malaysia",
+      "agency": "dept_rapidkl",
+      "image": "",
+      "message": "Llllllllkkkkk",
+      "photoLocation": "Platinum Walk, No. 52-3, Jalan Langkawi, Kuala Lumpur, Wilayah Persekutuan, 53300, Malaysia",
+      "priority": "Low",
+      "status": "in_progress",
+      "timestamp": "01/12/2025, 17:07:07",
+      "title": "Testing123",
+      "userEmail": "wenghong0506@gmail.com"
+    },
+    "-OfSsadFEBsF0a3L2_zC": {
+      "address": "Platinum Walk, No. 52-3, Jalan Langkawi, Kuala Lumpur, Wilayah Persekutuan, 53300, Malaysia",
+      "agency": "dept_works",
+      "image": "",
+      "message": "Lllllllllllllllll",
+      "photoLocation": "Platinum Walk, No. 52-3, Jalan Langkawi, Kuala Lumpur, Wilayah Persekutuan, 53300, Malaysia",
+      "priority": "Low",
+      "status": "in_progress",
+      "timestamp": "02/12/2025, 15:06:33",
+      "title": "Testing1234",
+      "userEmail": "wenghong0506@gmail.com"
+    },
+    "-OfSzDu_zbyLRqxgEUna": {
+      "address": "Platinum Walk, No. 52-3, Jalan Langkawi, Kuala Lumpur, Wilayah Persekutuan, 53300, Malaysia",
+      "agency": "dept_dbkl",
+      "comments": [
+        {
+          "message": "comment 1",
+          "time": "03/12/2025, 16:35:31",
+          "type": "user"
+        },
+        {
+          "message": "reply 123",
+          "time": "03/12/2025, 17:35:31",
+          "type": "agency"
+        },
+        {
+          "message": "Halo",
+          "time": "03/12/2025, 20:12:00",
+          "type": "user"
+        },
+        null,
+        {
+          "message": "Can le",
+          "time": "03/12/2025, 20:12:10",
+          "type": "user"
+        }
+      ],
+      "image": "",
+      "message": "Complaint Form",
+      "photoLocation": "Platinum Walk, No. 52-3, Jalan Langkawi, Kuala Lumpur, Wilayah Persekutuan, 53300, Malaysia",
+      "priority": "Low",
+      "resolvedTime": "03/12/2025, 16:35:31",
+      "status": "resolved",
+      "timestamp": "01/12/2025, 15:35:31",
+      "title": "Complaint 1",
+      "userEmail": "wenghong0506@gmail.com"
+    }
+  },
+  "departments": {
+    "dept_dbkl": {
+      "contactInfo": "dbkl@example.gov.my",
+      "departmentID": "dept_dbkl",
+      "departmentName": "DBKL"
+    },
+    "dept_kdebwm": {
+      "contactInfo": "kdebwm@example.gov.my",
+      "departmentID": "dept_kdebwm",
+      "departmentName": "KDEBWM"
+    },
+    "dept_pcb": {
+      "contactInfo": "pcb@example.gov.my",
+      "departmentID": "dept_pcb",
+      "departmentName": "Public Complaints Bureau"
+    },
+    "dept_rapidkl": {
+      "contactInfo": "rapidkl@example.gov.my",
+      "departmentID": "dept_rapidkl",
+      "departmentName": "Rapid KL"
+    },
+    "dept_works": {
+      "contactInfo": "mow@example.gov.my",
+      "departmentID": "dept_works",
+      "departmentName": "Ministry of Works"
+    }
+  },
+  "logs": {
+    "-OfJLpZoySX-GP-3fN5O": {
+      "action": "complaint_update",
+      "details": {
+        "cid": "-COct001",
+        "priority": "Medium",
+        "status": "in_progress"
+      },
+      "timestamp": "2025-11-30T10:42:28.805045",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfJLwIh3MvGuRf46Ys_": {
+      "action": "complaint_update",
+      "details": {
+        "cid": "-CNov002",
+        "priority": "Medium",
+        "status": "resolved"
+      },
+      "timestamp": "2025-11-30T10:42:56.381805",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfJM7SWRvJJ9dZyJ_EN": {
+      "action": "complaint_update",
+      "details": {
+        "cid": "-CNov002",
+        "priority": "High",
+        "status": "resolved"
+      },
+      "timestamp": "2025-11-30T10:43:46.161008",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfJPy6bgSXofIJZfd-x": {
+      "action": "account_update_admin",
+      "details": {
+        "fields": [
+          "name",
+          "username",
+          "email",
+          "role",
+          "contactNo",
+          "departmentID"
+        ],
+        "uid": "-Oevy8UidAsqliv_tz9O"
+      },
+      "timestamp": "2025-11-30T11:00:32.375217",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfKl3-aVTvy4_3N1Wop": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "cid": "-CNov003",
+        "fields": [
+          "status",
+          "priority"
+        ],
+        "values": {
+          "priority": "Medium",
+          "status": "resolved"
+        }
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T17:16:40.912471",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfKlOqPPG8MShIfNd4i": {
+      "action": "complaint_reroute",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "cid": "-COct003",
+        "new_department": "dept_kdebwm"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T17:18:10.373421",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfKlceXqc5FUPs4IeGk": {
+      "action": "account_update_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "fields": [
+          "name",
+          "username",
+          "email",
+          "role",
+          "contactNo",
+          "departmentID"
+        ],
+        "uid": "-Oevy8UidAsqliv_tz9O"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T17:19:11.052988",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfKouDoMUuPt9-oIB0h": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T17:33:29.438541",
+      "userID": "staff_dbkl_1",
+      "username": "dbklstaffs"
+    },
+    "-OfKpALBWO1bS3rDk93K": {
+      "action": "complaint_reroute",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "cid": "-COct001",
+        "new_department": "dept_rapidkl"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T17:34:39.541978",
+      "userID": "staff_dbkl_1",
+      "username": "dbklstaffs"
+    },
+    "-OfKpQLfCGNsOYjlZaX3": {
+      "action": "account_update_self",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "fields": [
+          "name",
+          "username",
+          "contactNo"
+        ]
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T17:35:45.110585",
+      "userID": "staff_dbkl_1",
+      "username": "dbklstafffs"
+    },
+    "-OfKy4zKSoY4dbKUfgCG": {
+      "action": "account_create_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "fields": [
+          "name",
+          "username",
+          "email",
+          "role",
+          "contactNo",
+          "departmentID",
+          "password"
+        ],
+        "uid": "-OfKy4yeJ85o6vvE7SXm"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T18:13:36.901175",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfKz2Zgevhd0TLZ0VNE": {
+      "action": "account_delete_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "uid": "-OfKy4yeJ85o6vvE7SXm"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T18:17:49.146798",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfL8am93PcTQeMNa7FL": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "priority": {
+            "after": "Low",
+            "before": "Medium"
+          }
+        },
+        "cid": "-COct001"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:03:54.810372",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfL8oOwB4160khjlHli": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "resolved",
+            "before": "in_progress"
+          }
+        },
+        "cid": "-COct001"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:04:50.605884",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfL8okRiJDKFb2WWw_7": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "priority": {
+            "after": "Medium",
+            "before": "Low"
+          }
+        },
+        "cid": "-COct001"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:04:52.047827",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfL9S8r5doc9cmuRmQZ": {
+      "action": "account_update_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "name": {
+            "after": "DBKL Staff Two",
+            "before": "DBKL Staff Twi"
+          }
+        },
+        "uid": "staff_dbkl_1"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:07:37.514157",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfL9eVoBNG7ar36Odv0": {
+      "action": "complaint_reroute",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "cid": "-CNov003",
+        "new_department": "dept_rapidkl"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:08:32.229656",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLABBoHxO7FJjXkF9z": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:10:49.127621",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLAHP6GKRqhrsqs-tr": {
+      "action": "complaint_reroute",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "cid": "-CSept001",
+        "department": {
+          "after": "dept_mow",
+          "before": "dept_pcb"
+        }
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:11:14.552202",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLAOUPpVA4AzT6L4Qp": {
+      "action": "account_update_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "uid": "-Oevy8UidAsqliv_tz9O"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:11:43.567065",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLB2nAX-WBF7eRqxFP": {
+      "action": "account_update_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "uid": "-Oevy8UidAsqliv_tz9O"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:14:36.864461",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLBQ8FughOcJtdrN_0": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:16:12.485168",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLBg3fGJWwctjIZ9gv": {
+      "action": "account_update_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "uid": "-Oevy8UidAsqliv_tz9O"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:17:21.824410",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLCMRI-ovy9lduLTto": {
+      "action": "account_update_self",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:20:19.462033",
+      "userID": "-OevquMRj9QBNYgkGAia",
+      "username": "dbklstuffs"
+    },
+    "-OfLCMeeDN8GOvF0NZhG": {
+      "action": "password_change_self",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:20:20.380572",
+      "userID": "-OevquMRj9QBNYgkGAia",
+      "username": "dbklstuffs"
+    },
+    "-OfLCg0KvVUShD6Exedb": {
+      "action": "account_update_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "uid": "-Oevy8UidAsqliv_tz9O"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:21:43.754571",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLCoAB7FQqERFPquob": {
+      "action": "account_update_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "uid": "-Oevy8UidAsqliv_tz9O"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:22:17.151370",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLCu5W9_8KmApJ341U": {
+      "action": "account_update_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "uid": "-Oevy8UidAsqliv_tz9O"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:22:41.430202",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLCxnwzjPk8wE2qugH": {
+      "action": "account_update_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "uid": "-Oevy8UidAsqliv_tz9O"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:22:56.624966",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLFwjN6joLQsj8QnlW": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:35:58.672405",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLG5XfQCJfmgv94ovQ": {
+      "action": "account_pwreset_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "uid": "-Oevy8UidAsqliv_tz9O"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:36:38.818229",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLIh2Pyr6INgvDjy9V": {
+      "action": "account_pwreset_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "uid": "-Oevy8UidAsqliv_tz9O"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:48:00.846252",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLIpW3hSLq-j5fRaiR": {
+      "action": "account_update_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "email": {
+            "after": "dbkl4@agency.local",
+            "before": "dbkl4@agency.locals"
+          }
+        },
+        "uid": "-Oevy8UidAsqliv_tz9O"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:48:35.515943",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfLIpavq1ZFU1E0qdmh": {
+      "action": "account_pwreset_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "uid": "-Oevy8UidAsqliv_tz9O"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-11-30T19:48:35.888819",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQN0LAAEUNdnKQDSNm": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "in_progress",
+            "before": "resolved"
+          }
+        },
+        "cid": "-CNov002"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:24:58.287008+00:00",
+      "userID": "staff_dbkl_1",
+      "username": "dbklstafffs"
+    },
+    "-OfQN17-xWr0z1BtJZRS": {
+      "action": "logout",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:25:01.477424+00:00",
+      "userID": "staff_dbkl_1",
+      "username": "dbklstafffs"
+    },
+    "-OfQN4tFequ8TlNfXH78": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:25:16.919461+00:00",
+      "userID": "-OevquMRj9QBNYgkGAia",
+      "username": "dbklstuffs"
+    },
+    "-OfQN8i0atpHbYYC9EhO": {
+      "action": "logout",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:25:32.582866+00:00",
+      "userID": "-OevquMRj9QBNYgkGAia",
+      "username": "dbklstuffs"
+    },
+    "-OfQN9SP-hBhQER19HDG": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:25:35.612858+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQNim_-BLwrws8ZErU": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "unresolved",
+            "before": "in_progress"
+          }
+        },
+        "cid": "-CNov002"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:28:04.427676+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQNvk2qSGf_0fEG6j-": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "priority": {
+            "after": "Medium",
+            "before": "Critical"
+          }
+        },
+        "cid": "-CNov001"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:28:57.514482+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQRZt98tMU-5gkSWMU": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "in_progress",
+            "before": "unresolved"
+          }
+        },
+        "cid": "-CNov002"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:44:52.466311+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQRpbWb0naNMlLFG5h": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "in_progress",
+            "before": "unresolved"
+          }
+        },
+        "cid": "-CNov001"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:46:00.968013+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQRxPsiMkB-EkaJ9Et": {
+      "action": "logout",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:46:32.667821+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQSCLU-H0wvtFQdmdD": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "resolved",
+            "before": "in_progress"
+          }
+        },
+        "cid": "-COct003"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:47:38.182395+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQSOhGn6NJCbXo49WB": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "in_progress",
+            "before": "resolved"
+          }
+        },
+        "cid": "-COct003"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:48:28.792302+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQSerofFjE-gtpvLq1": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "priority": {
+            "after": "Medium",
+            "before": "Low"
+          }
+        },
+        "cid": "-COct002"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:49:39.101267+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQSh-9Cj5CGZMWttwT": {
+      "action": "complaint_reroute",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "cid": "-COct002",
+        "department": {
+          "after": "dept_kdebwm",
+          "before": "dept_dbkl"
+        }
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:49:47.823882+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQSuf-lbMP89Wnl6PM": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "resolved",
+            "before": "in_progress"
+          }
+        },
+        "cid": "-COct003"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:50:43.815454+00:00",
+      "userID": "staff_kdebwm_1",
+      "username": "kdebwmstaffs"
+    },
+    "-OfQTM9RgDYF1dTd4BPq": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "priority": {
+            "after": "Medium",
+            "before": "High"
+          }
+        },
+        "cid": "-CNov002"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:52:40.517500+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQTRGydDy-V42WJPR0": {
+      "action": "logout",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:53:01.477427+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQUOnlWIowLrC9vwZj": {
+      "action": "complaint_reroute",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "cid": "-COct001",
+        "department": {
+          "after": "dept_dbkl",
+          "before": "dept_rapidkl"
+        }
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:57:13.496964+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQUcGvevO0RPivAlWM": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "priority": {
+            "after": "High",
+            "before": "Medium"
+          }
+        },
+        "cid": "-COct001"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T19:58:12.771189+00:00",
+      "userID": "-OevquMRj9QBNYgkGAia",
+      "username": "dbklstuffs"
+    },
+    "-OfQWeJCVLojg2sTjizE": {
+      "action": "complaint_reroute",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "cid": "-COct001",
+        "department": {
+          "after": "dept_rapidkl",
+          "before": "dept_dbkl"
+        }
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T20:07:05.398862+00:00",
+      "userID": "staff_dbkl_1",
+      "username": "dbklstafffs"
+    },
+    "-OfQWg8wW1Rbf17Fnh_E": {
+      "action": "logout",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T20:07:12.930561+00:00",
+      "userID": "staff_dbkl_1",
+      "username": "dbklstafffs"
+    },
+    "-OfQZmOzL1--MSer5O5T": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "resolved",
+            "before": "in_progress"
+          }
+        },
+        "cid": "-CNov002"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T20:20:44.962771+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQ_3GqcFj05etT_a7z": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "in_progress",
+            "before": "resolved"
+          }
+        },
+        "cid": "-COct001"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T20:21:58.176194+00:00",
+      "userID": "staff_rapidkl_1",
+      "username": "rapidstaff"
+    },
+    "-OfQ_4ZmX1Zi9X2yrPmQ": {
+      "action": "logout",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T20:22:03.482521+00:00",
+      "userID": "staff_rapidkl_1",
+      "username": "rapidstaff"
+    },
+    "-OfQ_5ayVto1HavVHVoI": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T20:22:07.720145+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQ_EjHrtJWIdfU3Fd-": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "unresolved",
+            "before": "resolved"
+          }
+        },
+        "cid": "-CNov002"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T20:22:45.115820+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQff4iZYDNvqP02F6W": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "in_progress",
+            "before": "unresolved"
+          }
+        },
+        "cid": "-CNov002"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T20:50:50.010089+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQgAxYAv_mNKuKynzz": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "unresolved",
+            "before": "in_progress"
+          }
+        },
+        "cid": "-CNov002"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T20:53:04.655228+00:00",
+      "userID": "staff_dbkl_1",
+      "username": "dbklstafffs"
+    },
+    "-OfQgBdQ7WePkzROCdM7": {
+      "action": "logout",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T20:53:07.462425+00:00",
+      "userID": "staff_dbkl_1",
+      "username": "dbklstafffs"
+    },
+    "-OfQgCChr7oxaCISKosw": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T20:53:09.783908+00:00",
+      "userID": "-OevquMRj9QBNYgkGAia",
+      "username": "dbklstuffs"
+    },
+    "-OfQiDUDjG1mdAf0yW4K": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T21:01:59.290084+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQiG3pPkO1bgTcK6pt": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "in_progress",
+            "before": "unresolved"
+          }
+        },
+        "cid": "-CNov002"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T21:02:09.890115+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQihloP9Jeb7dABdXU": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "in_progress",
+            "before": "resolved"
+          }
+        },
+        "cid": "-CNov003"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T21:04:07.455162+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQiouskbPYeHjLz2kr": {
+      "action": "logout",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T21:04:36.709275+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQipuW9RYQkMotgfee": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T21:04:40.784672+00:00",
+      "userID": "staff_rapidkl_1",
+      "username": "rapidstaff"
+    },
+    "-OfQiyGrJJQkS_51A2iY": {
+      "action": "complaint_reroute",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "cid": "-COct001",
+        "department": {
+          "after": "dept_dbkl",
+          "before": "dept_rapidkl"
+        }
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T21:05:15.042420+00:00",
+      "userID": "staff_rapidkl_1",
+      "username": "rapidstaff"
+    },
+    "-OfQiz3KjaU3Dh4bYRFh": {
+      "action": "logout",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T21:05:18.274984+00:00",
+      "userID": "staff_rapidkl_1",
+      "username": "rapidstaff"
+    },
+    "-OfQizhyyoTAuo0j1w9Q": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T21:05:20.939945+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQj5Dq73vEwSR-xS2I": {
+      "action": "logout",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T21:05:47.619585+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQj69ED8QpVNWoCtTo": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T21:05:51.420370+00:00",
+      "userID": "-OevquMRj9QBNYgkGAia",
+      "username": "dbklstuffs"
+    },
+    "-OfQj97nQqHpxqxjJjU0": {
+      "action": "account_update_self",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "name": {
+            "after": "DBKL Tre",
+            "before": "DBKL Trere"
+          }
+        }
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T21:06:03.616656+00:00",
+      "userID": "-OevquMRj9QBNYgkGAia",
+      "username": "dbklstuffs"
+    },
+    "-OfQn1XIAmOMSz_ae2Nl": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "unresolved",
+            "before": "in_progress"
+          }
+        },
+        "cid": "-COct001"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T21:23:01.053836+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfQnCmq9LXhxWh2VUN4": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "in_progress",
+            "before": "unresolved"
+          }
+        },
+        "cid": "-COct001"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T21:23:47.170900+00:00",
+      "userID": "staff_dbkl_1",
+      "username": "dbklstafffs"
+    },
+    "-OfQnGUwzH6MY_k3h9mL": {
+      "action": "complaint_reroute",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "cid": "-COct001",
+        "department": {
+          "after": "dept_rapidkl",
+          "before": "dept_dbkl"
+        }
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-01T21:24:02.343929+00:00",
+      "userID": "staff_dbkl_1",
+      "username": "dbklstafffs"
+    },
+    "-OfR_W5MK2ve69B6Jv-Y": {
+      "action": "account_update_admin",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "username": {
+            "after": "dbklstuff",
+            "before": "dbklstuffs"
+          }
+        },
+        "uid": "-OevquMRj9QBNYgkGAia"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-02T01:03:33.461291+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfR_fR2P_MCgVsi8IXr": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "status": {
+            "after": "unresolved",
+            "before": "in_progress"
+          }
+        },
+        "cid": "-CNov003"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-02T01:04:15.807780+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfR_foGfl8kHJ5i9kfM": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "priority": {
+            "after": "Critical",
+            "before": "Medium"
+          }
+        },
+        "cid": "-CNov003"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-02T01:04:17.361364+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfR_gR_zKirUZAWRthj": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "priority": {
+            "after": "Medium",
+            "before": "Critical"
+          }
+        },
+        "cid": "-CNov003"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-02T01:04:19.938440+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfR_h2BkSyFwYhg2e-g": {
+      "action": "complaint_update",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "details": {
+        "changes": {
+          "priority": {
+            "after": "Critical",
+            "before": "Medium"
+          }
+        },
+        "cid": "-CNov002"
+      },
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-02T01:04:22.411133+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfR_o08M2UzpnQgxhLR": {
+      "action": "logout",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-02T01:04:50.952882+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfR_p3Yt0DINPM9H_Mg": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-02T01:04:55.263316+00:00",
+      "userID": "-OevquMRj9QBNYgkGAia",
+      "username": "dbklstuff"
+    },
+    "-OfR_rVnpwRa63GEyfNn": {
+      "action": "logout",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-02T01:05:05.266439+00:00",
+      "userID": "-OevquMRj9QBNYgkGAia",
+      "username": "dbklstuff"
+    },
+    "-OfR_sZqURj0bC_z3Nr2": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-02T01:05:09.619223+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfRbEKIJ4xl59jLRoCg": {
+      "action": "logout",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-02T01:11:04.979758+00:00",
+      "userID": "admin_1",
+      "username": "admin"
+    },
+    "-OfRbF0huG2vzEZzq3Ie": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-02T01:11:07.818350+00:00",
+      "userID": "staff_dbkl_1",
+      "username": "dbklstafffs"
+    },
+    "-OfRbFx6QKc6gql6ulOz": {
+      "action": "logout",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-02T01:11:11.625007+00:00",
+      "userID": "staff_dbkl_1",
+      "username": "dbklstafffs"
+    },
+    "-OfRbHJGtjwKbNChp4ei": {
+      "action": "login",
+      "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-12-02T01:11:17.199624+00:00",
+      "userID": "staff_rapidkl_1",
+      "username": "rapidstaff"
+    }
+  },
+  "notifications": {
+    "-OfQN0MXb-Xud58HCzNa": {
+      "link": "",
+      "message": "Complaint -CNov002: status resolved → in_progress",
+      "meta": {
+        "cid": "-CNov002",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "admin_1": true,
+        "staff_dbkl_1": true
+      },
+      "target_dept": "dept_dbkl",
+      "timestamp": "2025-12-01T19:24:58.375597+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfQN0NFfL14J5EMHyYM": {
+      "link": "",
+      "message": "Complaint -CNov002: status resolved → in_progress",
+      "meta": {
+        "cid": "-CNov002",
+        "type": "complaint_update_admin"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true
+      },
+      "target_dept": "",
+      "target_users": [
+        "admin_1"
+      ],
+      "timestamp": "2025-12-01T19:24:58.421123+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfQNioBqU3J8NsEQxWV": {
+      "link": "",
+      "message": "Complaint -CNov002: status in_progress → unresolved",
+      "meta": {
+        "cid": "-CNov002",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "admin_1": true,
+        "staff_dbkl_1": true
+      },
+      "target_dept": "dept_dbkl",
+      "timestamp": "2025-12-01T19:28:04.530749+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfQNiom2D5LYyRHBESm": {
+      "link": "",
+      "message": "Complaint -CNov002: status in_progress → unresolved",
+      "meta": {
+        "cid": "-CNov002",
+        "type": "complaint_update_admin"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "-Oevy8UidAsqliv_tz9O": true,
+        "admin_1": true,
+        "staff_dbkl_1": true,
+        "staff_kdebwm_1": true,
+        "staff_rapidkl_1": true,
+        "staff_works_1": true
+      },
+      "target_dept": "",
+      "timestamp": "2025-12-01T19:28:04.571346+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfQNvkRvuk57Y1xRapp": {
+      "link": "",
+      "message": "Complaint -CNov001: priority Critical → Medium",
+      "meta": {
+        "cid": "-CNov001",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true,
+        "staff_works_1": true
+      },
+      "target_dept": "dept_works",
+      "timestamp": "2025-12-01T19:28:57.537329+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfQNvlBmQTT1ZM7EYlR": {
+      "link": "",
+      "message": "Complaint -CNov001: priority Critical → Medium",
+      "meta": {
+        "cid": "-CNov001",
+        "type": "complaint_update_admin"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "-Oevy8UidAsqliv_tz9O": true,
+        "admin_1": true,
+        "staff_dbkl_1": true,
+        "staff_kdebwm_1": true,
+        "staff_rapidkl_1": true,
+        "staff_works_1": true
+      },
+      "target_dept": "",
+      "timestamp": "2025-12-01T19:28:57.585949+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfQSCM80KEKs5NSPCQx": {
+      "link": "",
+      "message": "Complaint -COct003: status in_progress → resolved",
+      "meta": {
+        "cid": "-COct003",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "-Oevy8UidAsqliv_tz9O": true,
+        "admin_1": true,
+        "staff_kdebwm_1": true
+      },
+      "target_dept": "dept_kdebwm",
+      "timestamp": "2025-12-01T19:47:38.224096+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfQSCN7jO8gKqhqLb1t": {
+      "link": "",
+      "message": "Complaint -COct003: status in_progress → resolved",
+      "meta": {
+        "cid": "-COct003",
+        "type": "complaint_update_admin"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "-Oevy8UidAsqliv_tz9O": true,
+        "admin_1": true,
+        "staff_dbkl_1": true,
+        "staff_kdebwm_1": true,
+        "staff_rapidkl_1": true,
+        "staff_works_1": true
+      },
+      "target_dept": "",
+      "timestamp": "2025-12-01T19:47:38.286807+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfQSesW3KEFH217ga5_": {
+      "link": "",
+      "message": "Complaint -COct002: priority Low → Medium",
+      "meta": {
+        "cid": "-COct002",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "admin_1": true,
+        "staff_dbkl_1": true
+      },
+      "target_dept": "dept_dbkl",
+      "timestamp": "2025-12-01T19:49:39.142904+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfQSetZsnF4kF_GBgOJ": {
+      "link": "",
+      "message": "Complaint -COct002: priority Low → Medium",
+      "meta": {
+        "cid": "-COct002",
+        "type": "complaint_update_admin"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "-Oevy8UidAsqliv_tz9O": true,
+        "admin_1": true,
+        "staff_dbkl_1": true,
+        "staff_kdebwm_1": true,
+        "staff_rapidkl_1": true,
+        "staff_works_1": true
+      },
+      "target_dept": "",
+      "timestamp": "2025-12-01T19:49:39.211816+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfQSh1OS5d6vqcTE0Rn": {
+      "link": "",
+      "message": "Complaint -COct002 was rerouted to dept_kdebwm.",
+      "meta": {
+        "cid": "-COct002",
+        "type": "reroute"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "-Oevy8UidAsqliv_tz9O": true,
+        "admin_1": true,
+        "staff_dbkl_1": true,
+        "staff_kdebwm_1": true,
+        "staff_rapidkl_1": true,
+        "staff_works_1": true
+      },
+      "target_dept": "",
+      "timestamp": "2025-12-01T19:49:47.969128+00:00",
+      "title": "Complaint rerouted"
+    },
+    "-OfQUOoqv_wqEcFLbvWU": {
+      "link": "",
+      "message": "Complaint -COct001 was rerouted to dept_dbkl.",
+      "meta": {
+        "cid": "-COct001",
+        "type": "reroute"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "-Oevy8UidAsqliv_tz9O": true,
+        "admin_1": true,
+        "staff_dbkl_1": true,
+        "staff_kdebwm_1": true,
+        "staff_rapidkl_1": true,
+        "staff_works_1": true
+      },
+      "target_dept": "",
+      "timestamp": "2025-12-01T19:57:13.565233+00:00",
+      "title": "Complaint rerouted"
+    },
+    "-OfQUcHbXmckd86NveLC": {
+      "link": "",
+      "message": "Complaint -COct001: priority Medium → High",
+      "meta": {
+        "cid": "-COct001",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "admin_1": true,
+        "staff_dbkl_1": true
+      },
+      "target_dept": "dept_dbkl",
+      "timestamp": "2025-12-01T19:58:12.813657+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfQUcIgwVz_Zd0RW6IJ": {
+      "link": "",
+      "message": "Complaint -COct001: priority Medium → High",
+      "meta": {
+        "cid": "-COct001",
+        "type": "complaint_update_admin"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true
+      },
+      "target_dept": "",
+      "target_users": [
+        "admin_1"
+      ],
+      "timestamp": "2025-12-01T19:58:12.883609+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfQihmRNGnDE34muHdN": {
+      "link": "",
+      "message": "Complaint -CNov003: status resolved → in_progress",
+      "meta": {
+        "cid": "-CNov003",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true,
+        "staff_rapidkl_1": true
+      },
+      "target_dept": "dept_rapidkl",
+      "timestamp": "2025-12-01T21:04:07.498504+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfQiyIoYeFh5b2gFm3T": {
+      "link": "",
+      "message": "Complaint -COct001 assigned to your department.",
+      "meta": {
+        "cid": "-COct001",
+        "type": "assigned"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "admin_1": true,
+        "staff_dbkl_1": true
+      },
+      "target_dept": "dept_dbkl",
+      "timestamp": "2025-12-01T21:05:15.168160+00:00",
+      "title": "Complaint assigned"
+    },
+    "-OfQiyKuNazCcWJ9Yush": {
+      "link": "",
+      "message": "Complaint -COct001 rerouted from dept_rapidkl to dept_dbkl",
+      "meta": {
+        "cid": "-COct001",
+        "type": "complaint_reroute_admin"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true
+      },
+      "target_dept": "",
+      "target_users": [
+        "admin_1"
+      ],
+      "timestamp": "2025-12-01T21:05:15.304060+00:00",
+      "title": "Complaint rerouted"
+    },
+    "-OfQj98vh5cZOHat4qqG": {
+      "link": "",
+      "message": "dbklstuffs changed their own account details.",
+      "meta": {
+        "type": "self_update",
+        "uid": "-OevquMRj9QBNYgkGAia"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true
+      },
+      "target_dept": "",
+      "target_users": [
+        "admin_1"
+      ],
+      "timestamp": "2025-12-01T21:06:03.683210+00:00",
+      "title": "User updated account"
+    },
+    "-OfR_W6Wl7qqRjn5fLHT": {
+      "link": "",
+      "message": "Your account settings were changed by admin.",
+      "meta": {
+        "type": "account_admin_update",
+        "uid": "-OevquMRj9QBNYgkGAia"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "admin_1": true
+      },
+      "target_dept": "",
+      "target_users": [
+        "-OevquMRj9QBNYgkGAia"
+      ],
+      "timestamp": "2025-12-02T01:03:33.487348+00:00",
+      "title": "Account updated"
+    },
+    "-OfR_fRl_1uYX-dOLBiG": {
+      "link": "",
+      "message": "Complaint -CNov003: status in_progress → unresolved",
+      "meta": {
+        "cid": "-CNov003",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true,
+        "staff_rapidkl_1": true
+      },
+      "target_dept": "dept_rapidkl",
+      "timestamp": "2025-12-02T01:04:15.855863+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfR_fozck5H1FpRMkyF": {
+      "link": "",
+      "message": "Complaint -CNov003: priority Medium → Critical",
+      "meta": {
+        "cid": "-CNov003",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true,
+        "staff_rapidkl_1": true
+      },
+      "target_dept": "dept_rapidkl",
+      "timestamp": "2025-12-02T01:04:17.405412+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfR_gSI-2rfw1YXfo9u": {
+      "link": "",
+      "message": "Complaint -CNov003: priority Critical → Medium",
+      "meta": {
+        "cid": "-CNov003",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true,
+        "staff_rapidkl_1": true
+      },
+      "target_dept": "dept_rapidkl",
+      "timestamp": "2025-12-02T01:04:19.985509+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfR_h2vqms3Qj0RZByP": {
+      "link": "",
+      "message": "Complaint -CNov002: priority Medium → Critical",
+      "meta": {
+        "cid": "-CNov002",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "admin_1": true,
+        "staff_dbkl_1": true
+      },
+      "target_dept": "dept_dbkl",
+      "timestamp": "2025-12-02T01:04:22.458301+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfRbRJb3H71T7ObteHO": {
+      "link": "",
+      "message": "Complaint -COct001: Rerouted from dept_rapidkl to dept_pcb",
+      "meta": {
+        "cid": "-COct001",
+        "type": "complaint_update_admin"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true
+      },
+      "target_dept": "",
+      "target_users": [
+        "admin_1"
+      ],
+      "timestamp": "2025-12-02T01:11:58.183501+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfRdEn8GPU-vKQraM9T": {
+      "link": "",
+      "message": "Complaint -OfETr15HSthcHAvSm0h has been assigned to your department.",
+      "meta": {
+        "cid": "-OfETr15HSthcHAvSm0h",
+        "type": "assigned"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true,
+        "staff_pcb_1": true
+      },
+      "target_dept": "",
+      "target_users": [
+        "staff_pcb_1"
+      ],
+      "timestamp": "2025-12-02T01:19:51.177034+00:00",
+      "title": "Complaint assigned"
+    },
+    "-OfRdEoJH6ekgmnimkkS": {
+      "link": "",
+      "message": "Complaint -OfETr15HSthcHAvSm0h rerouted from dept_rapidkl → dept_pcb",
+      "meta": {
+        "cid": "-OfETr15HSthcHAvSm0h",
+        "type": "complaint_update_admin"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true
+      },
+      "target_dept": "",
+      "target_users": [
+        "admin_1"
+      ],
+      "timestamp": "2025-12-02T01:19:51.250533+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfReH5BUFJ0PluL-7Fr": {
+      "link": "",
+      "message": "Complaint -COct003 has been assigned to your department.",
+      "meta": {
+        "cid": "-COct003",
+        "type": "assigned"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "admin_1": true,
+        "staff_dbkl_1": true
+      },
+      "target_dept": "",
+      "target_users": [
+        "-OevquMRj9QBNYgkGAia",
+        "staff_dbkl_1"
+      ],
+      "timestamp": "2025-12-02T01:24:22.731988+00:00",
+      "title": "Complaint assigned"
+    },
+    "-OfRgMTVOLbISit6CipB": {
+      "link": "",
+      "message": "Complaint -CNov003 assigned to your department.",
+      "meta": {
+        "cid": "-CNov003",
+        "type": "assigned"
+      },
+      "persistent": true,
+      "target_dept": "dept_mow",
+      "timestamp": "2025-12-02T01:33:29.057432+00:00",
+      "title": "Complaint assigned"
+    },
+    "-OfRhMF1AB2JDJjaOuFM": {
+      "link": "",
+      "message": "Complaint -COct003 assigned to your department.",
+      "meta": {
+        "cid": "-COct003",
+        "type": "assigned"
+      },
+      "persistent": true,
+      "read_by": {
+        "staff_works_1": true
+      },
+      "target_dept": "dept_works",
+      "timestamp": "2025-12-02T01:37:50.275362+00:00",
+      "title": "Complaint assigned"
+    },
+    "-OfRhZSnleytsLJdmeSd": {
+      "link": "",
+      "message": "Complaint -CNov001 assigned to your department.",
+      "meta": {
+        "cid": "-CNov001",
+        "type": "assigned"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true,
+        "staff_dbkl_1": true
+      },
+      "target_dept": "dept_dbkl",
+      "timestamp": "2025-12-02T01:38:44.403446+00:00",
+      "title": "Complaint assigned"
+    },
+    "-OfRhv781nxtSuo_vkxv": {
+      "link": "",
+      "message": "Complaint -CNov003: status unresolved → in_progress",
+      "meta": {
+        "cid": "-CNov003",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "staff_works_1": true
+      },
+      "target_dept": "dept_works",
+      "timestamp": "2025-12-02T01:40:17.224207+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfRi0Q79vuN2OAm_VjE": {
+      "link": "",
+      "message": "Complaint -CNov001: priority Medium → Critical",
+      "meta": {
+        "cid": "-CNov001",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true
+      },
+      "target_dept": "dept_dbkl",
+      "timestamp": "2025-12-02T01:40:43.014382+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfRi0RFoS06yAJX03eX": {
+      "link": "",
+      "message": "Complaint -CNov001: priority Medium → Critical",
+      "meta": {
+        "cid": "-CNov001",
+        "type": "complaint_update_admin"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true
+      },
+      "target_dept": "",
+      "target_users": [
+        "admin_1"
+      ],
+      "timestamp": "2025-12-02T01:40:43.087311+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfRi0lD7u8__6gVa3v9": {
+      "link": "",
+      "message": "Complaint -CNov001: status in_progress → resolved",
+      "meta": {
+        "cid": "-CNov001",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true
+      },
+      "target_dept": "dept_dbkl",
+      "timestamp": "2025-12-02T01:40:44.431612+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfRi0mBPRkowtjDe67a": {
+      "link": "",
+      "message": "Complaint -CNov001: status in_progress → resolved",
+      "meta": {
+        "cid": "-CNov001",
+        "type": "complaint_update_admin"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true
+      },
+      "target_dept": "",
+      "target_users": [
+        "admin_1"
+      ],
+      "timestamp": "2025-12-02T01:40:44.494679+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfRoPQcZAetHvtEdvBH": {
+      "link": "",
+      "message": "Complaint -OfO9ayKTGTyFn6MA5Zf: status pending → in_progress; priority None → Low",
+      "meta": {
+        "cid": "-OfO9ayKTGTyFn6MA5Zf",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "target_dept": "dept_rapidkl",
+      "timestamp": "2025-12-02T02:08:37.850991+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfSt3utv9KZS7NQhjff": {
+      "link": "",
+      "message": "New complaint 'Testing1234' added on 02/12/2025, 15:06:33",
+      "meta": {
+        "cid": "-OfSsadFEBsF0a3L2_zC",
+        "type": "new_complaint"
+      },
+      "persistent": true,
+      "read_by": {
+        "staff_works_1": true
+      },
+      "target_dept": "dept_works",
+      "timestamp": "2025-12-02T07:08:37.666417+00:00",
+      "title": "New complaint assigned"
+    },
+    "-OfSt3vuB0tI99lTXR7j": {
+      "link": "",
+      "message": "Complaint 'Testing1234' created on 02/12/2025, 15:06:33",
+      "meta": {
+        "cid": "-OfSsadFEBsF0a3L2_zC",
+        "type": "new_complaint_admin"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true
+      },
+      "target_dept": "",
+      "target_users": [
+        "admin_1"
+      ],
+      "timestamp": "2025-12-02T07:08:37.734921+00:00",
+      "title": "New complaint submitted"
+    },
+    "-OfStBeVB9L5wmgjSftT": {
+      "link": "",
+      "message": "Complaint -OfSsadFEBsF0a3L2_zC: status pending → in_progress; priority None → Low",
+      "meta": {
+        "cid": "-OfSsadFEBsF0a3L2_zC",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "staff_works_1": true
+      },
+      "target_dept": "dept_works",
+      "timestamp": "2025-12-02T07:09:09.387019+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfSzf_e8qx54-qQxgEh": {
+      "link": "",
+      "message": "New complaint 'Complaint 1' added on 02/12/2025, 15:35:31",
+      "meta": {
+        "cid": "-OfSzDu_zbyLRqxgEUna",
+        "type": "new_complaint"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true
+      },
+      "target_dept": "dept_dbkl",
+      "timestamp": "2025-12-02T07:37:28.921115+00:00",
+      "title": "New complaint assigned"
+    },
+    "-OfSzfacC9Vld1DJ-Sss": {
+      "link": "",
+      "message": "Complaint 'Complaint 1' created on 02/12/2025, 15:35:31",
+      "meta": {
+        "cid": "-OfSzDu_zbyLRqxgEUna",
+        "type": "new_complaint_admin"
+      },
+      "persistent": true,
+      "read_by": {
+        "admin_1": true
+      },
+      "target_dept": "",
+      "target_users": [
+        "admin_1"
+      ],
+      "timestamp": "2025-12-02T07:37:28.982780+00:00",
+      "title": "New complaint submitted"
+    },
+    "-OfSzvUdVRd6RcVgCEvJ": {
+      "link": "",
+      "message": "Complaint -OfSzDu_zbyLRqxgEUna: status pending → unresolved; priority None → Low",
+      "meta": {
+        "cid": "-OfSzDu_zbyLRqxgEUna",
+        "type": "complaint_update"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true
+      },
+      "target_dept": "dept_dbkl",
+      "timestamp": "2025-12-02T07:38:34.072054+00:00",
+      "title": "Complaint updated"
+    },
+    "-OfT-SCk7p6ZoRi9pqlF": {
+      "link": "",
+      "message": "Complaint -COct002 assigned to your department.",
+      "meta": {
+        "cid": "-COct002",
+        "type": "assigned"
+      },
+      "persistent": true,
+      "read_by": {
+        "-OevquMRj9QBNYgkGAia": true
+      },
+      "target_dept": "dept_dbkl",
+      "timestamp": "2025-12-02T07:40:52.192111+00:00",
+      "title": "Complaint assigned"
+    },
+    "-OfT0DUIV1UVcp4UhinF": {
+      "link": "",
+      "message": "Your account settings were changed by admin.",
+      "meta": {
+        "type": "account_admin_update",
+        "uid": "-Oevy8UidAsqliv_tz9O"
+      },
+      "persistent": true,
+      "target_dept": "",
+      "target_users": [
+        "-Oevy8UidAsqliv_tz9O"
+      ],
+      "timestamp": "2025-12-02T07:44:14.018999+00:00",
+      "title": "Account updated"
+    }
+  },
+  "test_node": {
+    "-OeMvkCJxMMeICj_ai1a": {
+      "message": "Firebase connection successful!"
+    }
+  },
+  "users": {
+    "-OdIkwMfpysR0i4jchc7": {
+      "createdAt": "2025-11-05T11:25:30.413Z",
+      "email": "wenghong0506@gmail.com",
+      "name": "Weng Hong",
+      "passwordHash": "6a355603dbd9d183d60fe1120cfb19688a40a1c051cec496a0638b49d42afa49",
+      "salt": "8e6514ef4d839b53238eeb3e9eeae3e0"
+    },
+    "-OfSyXKZINoBHmgKmHw8": {
+      "createdAt": "2025-12-02T07:32:29.765Z",
+      "email": "admin@gmail.com",
+      "name": "Admin123456",
+      "passwordHash": "2a647963494ac2344059880d1d76d48e8529aac3b93721d89a87c78a4ce6d148",
+      "salt": "20b10e4ff99ab6e7aa21b19bbf82677a"
+    },
+    "-OfZDhSJCIGISOxflLJ8": {
+      "createdAt": "2025-12-03T12:40:52.265Z",
+      "email": "kaichen0429@gmail.com",
+      "name": "Wong Kai Chen",
+      "passwordHash": "526d08132bc640748277d0d516cf0dc77b5d096af76ed3d7bdbdb6212c91fd37",
+      "salt": "64dec89d21f223f22b0997142a9152f9"
+    }
+  }
+}
