@@ -8,64 +8,122 @@ const FIREBASE_DB = 'https://mycomplaint-b2805-default-rtdb.asia-southeast1.fire
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
   const handleLogin = async () => {
     setEmailError('');
     setPasswordError('');
-
     const trimmedEmail = email.trim();
     const trimmedPassword = password;
 
-    if (!trimmedEmail) return setEmailError("Email is required");
-    if (!trimmedPassword) return setPasswordError("Password is required");
+    if (!trimmedEmail) {
+      setEmailError('Email is required');
+      return;
+    }
+    if (!trimmedPassword) {
+      setPasswordError('Password is required');
+      return;
+    }
 
     try {
-      const url = `${FIREBASE_DB}/agency_users.json?orderBy=%22email%22&equalTo=%22${trimmedEmail}%22`;
+      // Fetch all agency_users (avoid orderBy/index issues)
+      const url = `${FIREBASE_DB}/agency_users.json`;
+      console.log('LOGIN: fetching all staff from', url);
       const resp = await fetch(url);
+      if (!resp.ok) {
+        const txt = await resp.text();
+        console.error('LOGIN: fetch failed', txt);
+        Alert.alert('Login failed', 'Unable to query staff accounts.');
+        return;
+      }
+
       const data = await resp.json();
+      console.log('LOGIN: agency_users raw:', data);
 
-      if (!data || Object.keys(data).length === 0) {
-        setEmailError("No staff account found.");
+      if (!data || typeof data !== 'object') {
+        setEmailError('No staff data found');
         return;
       }
 
-      const key = Object.keys(data)[0];
-      const staff = data[key];
+      // Find staff by email
+      let staffKey = null;
+      let staff = null;
+      for (const key in data) {
+        if (!Object.prototype.hasOwnProperty.call(data, key)) continue;
+        const record = data[key];
+        if (!record || !record.email) continue;
+        if (String(record.email).toLowerCase() === trimmedEmail.toLowerCase()) {
+          staffKey = key;      // this is the firebase key string (e.g. "-Oevqu...")
+          staff = record;      // this is the staff object
+          break;
+        }
+      }
 
-      if (staff.role !== "Staff") {
-        setEmailError("Access denied. Not a staff account.");
+      console.log('LOGIN: matched staffKey:', staffKey);
+      console.log('LOGIN: matched staff object:', staff);
+
+      if (!staff) {
+        setEmailError('No staff account found for this email');
         return;
       }
 
-      const storedHash = staff.passwordHash;
+      // Role check (case-insensitive)
+      if ((staff.role || '').toLowerCase() !== 'staff') {
+        setEmailError('Access denied. Not a staff account.');
+        return;
+      }
+
+      // SHA-256 authentication: use the sha256Hash field + salt
       const salt = staff.salt;
+      const storedHash = staff.sha256Hash; // note: your DB field name
+      if (!salt || !storedHash) {
+        Alert.alert('Login failed', 'Staff account missing SHA-256 fields. Contact admin.');
+        return;
+      }
 
-      const computed = await Crypto.digestStringAsync(
+      const computedHash = await Crypto.digestStringAsync(
         Crypto.CryptoDigestAlgorithm.SHA256,
         salt + trimmedPassword
       );
 
-      if (computed !== storedHash) {
-        setPasswordError("Incorrect password");
+      console.log('Computed:', computedHash);
+      console.log('Stored:', storedHash);
+
+      if (computedHash !== storedHash) {
+        setPasswordError('Incorrect password');
         return;
       }
 
-      await AsyncStorage.setItem("staffID", key);
-      await AsyncStorage.setItem("staffEmail", staff.email);
-      await AsyncStorage.setItem("staffName", staff.name || "");
-      await AsyncStorage.setItem("staffDepartment", staff.departmentID);
+      // Successful login: save staff info to AsyncStorage
+      await AsyncStorage.setItem('staffID', staffKey);
+      await AsyncStorage.setItem('staffEmail', staff.email);
+      await AsyncStorage.setItem('staffName', staff.name || '');
+      await AsyncStorage.setItem('staffDepartment', staff.departmentID || '');
 
+      // Optional: update lastLogin time in DB (non-blocking)
+      (async () => {
+        try {
+          const now = new Date().toISOString();
+          await fetch(`${FIREBASE_DB}/agency_users/${encodeURIComponent(staffKey)}/lastLogin.json`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(now),
+          });
+        } catch (e) {
+          console.warn('Failed to update lastLogin (non-blocking):', e);
+        }
+      })();
+
+      // Navigate into the app and reset stack
       navigation.reset({
         index: 0,
-        routes: [{ name: "Main" }],
+        routes: [{ name: 'Main' }],
       });
 
     } catch (err) {
-      Alert.alert("Login failed", "Unexpected error occurred.");
-      console.log(err);
+      console.error('Login error:', err);
+      Alert.alert('Login failed', 'An unexpected error occurred. See console for details.');
     }
   };
 
@@ -78,6 +136,8 @@ export default function LoginScreen({ navigation }) {
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
+        autoCapitalize="none"
+        keyboardType="email-address"
       />
       {emailError ? <Text style={styles.errorText}>{emailError}</Text> : null}
 
@@ -94,66 +154,20 @@ export default function LoginScreen({ navigation }) {
         <Text style={styles.buttonText}>Log In</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")}>
+      <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
         <Text style={styles.linkText}>Forgot Password?</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  title: {
-    color: '#5044ec',
-    fontSize: 32,
-    fontWeight: 'bold',
-    marginBottom: 40,
-  },
-  input: {
-    width: '100%',
-    height: 50,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    marginBottom: 20,
-    backgroundColor: '#fff',
-  },
-  button: {
-    width: '100%',
-    height: 50,
-    backgroundColor: '#5044ec',
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  linkText: {
-    color: '#3492eb',
-    textDecorationLine: 'underline',
-    marginTop: 10,
-  },
-  inputError: {
-    borderColor: '#e53935',
-  },
-  errorText: {
-    color: '#e53935',
-    width: '100%',
-    textAlign: 'left',
-    marginTop: -10,
-    marginBottom: 10,
-    paddingLeft: 5,
-  },
+  container: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20 },
+  title: { color: '#5044ec', fontSize: 32, fontWeight: 'bold', marginBottom: 40 },
+  input: { width: '100%', height: 50, borderColor: '#ccc', borderWidth: 1, borderRadius: 10, paddingHorizontal: 15, marginBottom: 20, backgroundColor: '#fff' },
+  button: { width: '100%', height: 50, backgroundColor: '#5044ec', borderRadius: 10, alignItems: 'center', justifyContent: 'center', marginTop: 10, marginBottom: 20 },
+  buttonText: { color: '#fff', fontSize: 18, fontWeight: 'bold' },
+  linkText: { color: '#3492eb', textDecorationLine: 'underline', marginTop: 10 },
+  inputError: { borderColor: '#e53935' },
+  errorText: { color: '#e53935', width: '100%', textAlign: 'left', marginTop: -10, marginBottom: 10, paddingLeft: 5 },
 });
