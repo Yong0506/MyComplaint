@@ -1,26 +1,96 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+  Image,
+  Alert,
+  ActivityIndicator
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import * as ImagePicker from "expo-image-picker";
+import * as Location from "expo-location";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+const FIREBASE_DB =
+  "https://mycomplaint-b2805-default-rtdb.asia-southeast1.firebasedatabase.app";
 
 export default function ViewComplaintScreen({ navigation, route }) {
-  // route.params can provide the complaint object. Support several common shapes.
-  const complaint = route?.params?.complaint || route?.params?.item || {};
-  const {
-    title = 'No title',
-    message = 'No description',
-    image = null,
-    agency = 'N/A',
-    timestamp = '',
-    location = null,
-    address = '',
-  } = complaint;
+  const complaint = route?.params?.complaint || {};
+  const [evidencePhoto, setEvidencePhoto] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const agencyMap = {
-    dept_dbkl: "Kuala Lumpur City Hall",
-    dept_kdebwm: "KDEB Waste Management",
-    dept_pcb: "Public Complaints Bureau",
-    dept_rapidkl: "Rapid KL",
-    dept_works: "Ministry of Works",
+  const pickPhoto = async () => {
+    const result = await ImagePicker.launchCameraAsync({
+      quality: 0.7,
+      base64: true
+    });
+
+    if (!result.canceled) {
+      setEvidencePhoto("data:image/jpeg;base64," + result.assets[0].base64);
+    }
+  };
+
+  const resolveComplaint = async () => {
+    if (!evidencePhoto) {
+      Alert.alert("Missing Evidence", "Please take a photo before resolving.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const staffID = await AsyncStorage.getItem("staffID");
+
+      /** 1. Get GPS Location */
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        Alert.alert("Permission Denied", "Location permission is required.");
+        setLoading(false);
+        return;
+      }
+
+      const loc = await Location.getCurrentPositionAsync({});
+      const evidenceLocation = {
+        latitude: loc.coords.latitude,
+        longitude: loc.coords.longitude
+      };
+
+      /** 2. Timestamp */
+      const resolvedTime = new Date().toISOString();
+
+      /** 3. Update Firebase */
+      const updateData = {
+        status: "resolved",
+        resolvedTime,
+        resolvedBy: staffID,
+        evidencePhoto,
+        evidenceLocation
+      };
+
+      const res = await fetch(`${FIREBASE_DB}/complaints/${complaint.id}.json`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updateData)
+      });
+
+      if (!res.ok) {
+        Alert.alert("Error", "Failed to update complaint.");
+        setLoading(false);
+        return;
+      }
+
+      Alert.alert("Success", "Complaint marked as resolved.");
+      navigation.goBack();
+
+    } catch (err) {
+      console.error(err);
+      Alert.alert("Error", "Unexpected issue occurred.");
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -29,114 +99,117 @@ export default function ViewComplaintScreen({ navigation, route }) {
         <Ionicons name="arrow-back" size={28} color="#5044ec" />
       </TouchableOpacity>
 
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>{complaint.title}</Text>
 
-      {image ? (
-        <Image source={{ uri: image }} style={styles.photo} resizeMode="cover" />
+      {complaint.image ? (
+        <Image source={{ uri: complaint.image }} style={styles.photo} resizeMode="cover" />
       ) : (
         <View style={styles.noPhoto}>
-          <Text style={styles.noPhotoText}>No photo provided</Text>
+          <Text>No photo provided</Text>
         </View>
       )}
 
+      {/* Existing description block */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Description</Text>
-        <Text style={styles.sectionText}>{message}</Text>
+        <Text style={styles.sectionText}>{complaint.message}</Text>
       </View>
 
-      <View style={styles.rowSection}>
-        <View style={styles.half}>
-          <Text style={styles.sectionTitle}>Agency</Text>
-          <Text style={styles.sectionText}>
-            {agencyMap[agency] || agency}
-          </Text>
-        </View>
-        <View style={styles.half}>
-          <Text style={styles.sectionTitle}>Taken At</Text>
-          <Text style={styles.sectionText}>{timestamp}</Text>
-        </View>
-      </View>
+      {/* =============================== */}
+      {/* STAFF ACTION SECTION STARTS HERE */}
+      {/* =============================== */}
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Location</Text>
-        {address ? (
-          <Text style={styles.sectionText}>{address}</Text>
-        ) : location ? (
-          <Text style={styles.sectionText}>
-            Lat: {location.latitude?.toFixed(5)} | Lng: {location.longitude?.toFixed(5)}
-          </Text>
+      <Text style={styles.sectionTitle2}>Staff Actions</Text>
+
+      {/* Evidence Preview */}
+      {evidencePhoto ? (
+        <Image source={{ uri: evidencePhoto }} style={styles.evidencePhoto} />
+      ) : (
+        <Text style={{ color: "#777", marginBottom: 10 }}>
+          No evidence photo added yet
+        </Text>
+      )}
+
+      {/* Take Photo Button */}
+      <TouchableOpacity style={styles.captureButton} onPress={pickPhoto}>
+        <Ionicons name="camera-outline" size={22} color="#fff" />
+        <Text style={styles.captureText}>Take Evidence Photo</Text>
+      </TouchableOpacity>
+
+      {/* Resolve Button */}
+      <TouchableOpacity
+        style={styles.resolveButton}
+        onPress={resolveComplaint}
+        disabled={loading}
+      >
+        {loading ? (
+          <ActivityIndicator color="#fff" />
         ) : (
-          <Text style={styles.sectionText}>No location provided</Text>
+          <Text style={styles.resolveText}>Mark as Resolved</Text>
         )}
-      </View>
+      </TouchableOpacity>
+
+      {/* =============================== */}
+      {/* STAFF ACTION SECTION ENDS HERE */}
+      {/* =============================== */}
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 60,
-    paddingHorizontal: 20,
-    backgroundColor: '#fff',
-  },
-  backButton: {
-    position: 'absolute',
-    top: 65,
-    left: 25,
-    zIndex: 1,
-  },
-  title: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#5044ec',
-  },
-  photo: {
-    width: '100%',
-    height: 220,
-    borderRadius: 12,
-    marginTop: 20,
-    backgroundColor: '#eee',
-  },
+  container: { flexGrow: 1, paddingTop: 60, paddingHorizontal: 20 },
+  backButton: { position: "absolute", top: 65, left: 25 },
+  title: { fontSize: 26, fontWeight: "bold", textAlign: "center", color: "#5044ec" },
+  photo: { width: "100%", height: 220, borderRadius: 12, marginTop: 20 },
   noPhoto: {
-    width: '100%',
+    width: "100%",
     height: 220,
     borderRadius: 12,
     marginTop: 20,
-    backgroundColor: '#f2f2f2',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#f2f2f2",
+    justifyContent: "center",
+    alignItems: "center"
   },
-  noPhotoText: {
-    color: '#777',
+  section: { marginTop: 18, padding: 12, backgroundColor: "#fafafa", borderRadius: 10 },
+  sectionTitle: { fontSize: 14, color: "#5044ec", fontWeight: "600" },
+  sectionText: { fontSize: 15, color: "#333" },
+
+  sectionTitle2: {
+    marginTop: 25,
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#5044ec"
   },
-  section: {
-    marginTop: 18,
-    padding: 12,
-    backgroundColor: '#fafafa',
+
+  evidencePhoto: {
+    width: "100%",
+    height: 180,
     borderRadius: 10,
+    marginBottom: 15,
+    marginTop: 10
   },
-  sectionTitle: {
-    fontSize: 14,
-    color: '#5044ec',
-    fontWeight: '600',
-    marginBottom: 6,
+
+  captureButton: {
+    flexDirection: "row",
+    backgroundColor: "#5044ec",
+    padding: 14,
+    borderRadius: 10,
+    alignItems: "center",
+    marginBottom: 20
   },
-  sectionText: {
-    fontSize: 15,
-    color: '#333',
-    lineHeight: 20,
-  },
-  rowSection: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: 10,
-    marginTop: 12,
+  captureText: {
+    color: "#fff",
     marginLeft: 10,
+    fontSize: 16,
+    fontWeight: "600"
   },
-  half: {
-    flex: 1,
-    paddingRight: 8,
+
+  resolveButton: {
+    backgroundColor: "#2cba88",
+    padding: 16,
+    borderRadius: 12,
+    alignItems: "center",
+    marginBottom: 40
   },
+  resolveText: { color: "#fff", fontSize: 17, fontWeight: "bold" }
 });

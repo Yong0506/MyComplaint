@@ -3,103 +3,90 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'reac
 import * as Crypto from 'expo-crypto';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+const FIREBASE_DB = 'https://mycomplaint-b2805-default-rtdb.asia-southeast1.firebasedatabase.app';
+
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     setEmailError('');
     setPasswordError('');
 
     const trimmedEmail = email.trim();
     const trimmedPassword = password;
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    let valid = true;
+    if (!trimmedEmail) return setEmailError("Email is required");
+    if (!trimmedPassword) return setPasswordError("Password is required");
 
-    if (!trimmedEmail) {
-      setEmailError('Email is required');
-      valid = false;
-    } else if (!emailPattern.test(trimmedEmail)) {
-      setEmailError('Please enter a valid email');
-      valid = false;
-    }
+    try {
+      const url = `${FIREBASE_DB}/agency_users.json?orderBy=%22email%22&equalTo=%22${trimmedEmail}%22`;
+      const resp = await fetch(url);
+      const data = await resp.json();
 
-    if (!trimmedPassword) {
-      setPasswordError('Password is required');
-      valid = false;
-    }
-
-    if (!valid) {
-      console.log('Login validation failed');
-      return;
-    }
-
-    (async () => {
-      try {
-        const FIREBASE_DB = 'https://mycomplaint-b2805-default-rtdb.asia-southeast1.firebasedatabase.app';
-
-        const url = `${FIREBASE_DB}/users.json?orderBy=%22email%22&equalTo=${encodeURIComponent('"' + trimmedEmail + '"')}`;
-        const resp = await fetch(url);
-        if (!resp.ok) {
-          const txt = await resp.text();
-          console.error('Firebase query error', txt);
-          Alert.alert('Login failed', 'Unable to query user data.');
-          return;
-        }
-
-        const data = await resp.json();
-        if (!data || Object.keys(data).length === 0) {
-          setEmailError('No account found for this email');
-          return;
-        }
-
-        const key = Object.keys(data)[0];
-        const user = data[key];
-        const storedHash = user.passwordHash;
-        const salt = user.salt;
-
-        if (!storedHash || !salt) {
-          Alert.alert('Login failed', 'User record is invalid.');
-          return;
-        }
-
-        const computed = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, salt + trimmedPassword);
-        if (computed === storedHash) {
-          await AsyncStorage.setItem('userEmail', trimmedEmail);
-          setEmail('');
-          setPassword('');
-          navigation.navigate('Main');
-        } else {
-          setPasswordError('Incorrect password');
-        }
-      } catch (err) {
-        console.error('Login error', err);
-        Alert.alert('Login failed', 'An unexpected error occurred.');
+      if (!data || Object.keys(data).length === 0) {
+        setEmailError("No staff account found.");
+        return;
       }
-    })();
+
+      const key = Object.keys(data)[0];
+      const staff = data[key];
+
+      if (staff.role !== "Staff") {
+        setEmailError("Access denied. Not a staff account.");
+        return;
+      }
+
+      const storedHash = staff.passwordHash;
+      const salt = staff.salt;
+
+      const computed = await Crypto.digestStringAsync(
+        Crypto.CryptoDigestAlgorithm.SHA256,
+        salt + trimmedPassword
+      );
+
+      if (computed !== storedHash) {
+        setPasswordError("Incorrect password");
+        return;
+      }
+
+      await AsyncStorage.setItem("staffID", key);
+      await AsyncStorage.setItem("staffEmail", staff.email);
+      await AsyncStorage.setItem("staffName", staff.name || "");
+      await AsyncStorage.setItem("staffDepartment", staff.departmentID);
+
+      navigation.reset({
+        index: 0,
+        routes: [{ name: "Main" }],
+      });
+
+    } catch (err) {
+      Alert.alert("Login failed", "Unexpected error occurred.");
+      console.log(err);
+    }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Staff Login</Text>
 
       <TextInput
         style={[styles.input, emailError ? styles.inputError : null]}
         placeholder="Email"
         value={email}
-        onChangeText={(text) => setEmail(text)}
+        onChangeText={setEmail}
       />
       {emailError ? <Text style={styles.errorText}>{emailError}</Text> : null}
 
       <TextInput
         style={[styles.input, passwordError ? styles.inputError : null]}
         placeholder="Password"
-        value={password}
         secureTextEntry
-        onChangeText={(text) => setPassword(text)}
+        value={password}
+        onChangeText={setPassword}
       />
       {passwordError ? <Text style={styles.errorText}>{passwordError}</Text> : null}
 
@@ -107,12 +94,13 @@ export default function LoginScreen({ navigation }) {
         <Text style={styles.buttonText}>Log In</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-        <Text style={styles.linkText}>Don't have an account? Register here</Text>
+      <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")}>
+        <Text style={styles.linkText}>Forgot Password?</Text>
       </TouchableOpacity>
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

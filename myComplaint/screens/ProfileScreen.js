@@ -1,90 +1,66 @@
-import React, { useState, useCallback } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons';
-import { useFocusEffect } from '@react-navigation/native';
+
+const FIREBASE_DB = "https://mycomplaint-b2805-default-rtdb.asia-southeast1.firebasedatabase.app";
 
 export default function ProfileScreen({ navigation }) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [staffName, setStaffName] = useState("");
+  const [staffEmail, setStaffEmail] = useState("");
+  const [departmentName, setDepartmentName] = useState("");
 
-  const loadProfile = useCallback(async () => {
-    try {
-      const storedEmail = await AsyncStorage.getItem('userEmail');
-      if (!storedEmail) return;
-      setEmail(storedEmail);
-
-      const FIREBASE_DB = 'https://mycomplaint-b2805-default-rtdb.asia-southeast1.firebasedatabase.app';
-      const emailKey = encodeURIComponent(storedEmail);
-
-      const mapRes = await fetch(`${FIREBASE_DB}/emails/${emailKey}.json`);
-      if (mapRes.ok) {
-        const mapped = await mapRes.json();
-        if (mapped) {
-          const userRes = await fetch(`${FIREBASE_DB}/users/${mapped}.json`);
-          if (userRes.ok) {
-            const userData = await userRes.json();
-            if (userData && userData.name) setName(userData.name);
-            return;
-          }
-        }
-      }
-
-      const queryRes = await fetch(`${FIREBASE_DB}/users.json`);
-      if (!queryRes.ok) return;
-      const all = await queryRes.json();
-      if (!all) return;
-      for (const k of Object.keys(all)) {
-        const u = all[k];
-        if (u && u.email === storedEmail) {
-          if (u.name) setName(u.name);
-          return;
-        }
-      }
-    } catch (err) {
-      console.error('Failed to load profile', err);
-    }
+  useEffect(() => {
+    loadStaffData();
   }, []);
 
-  useFocusEffect(
-    useCallback(() => {
-      loadProfile();
-    }, [loadProfile])
-  );
+  const loadStaffData = async () => {
+    const name = await AsyncStorage.getItem("staffName");
+    const email = await AsyncStorage.getItem("staffEmail");
+    const deptID = await AsyncStorage.getItem("staffDepartment");
+
+    setStaffName(name || "");
+    setStaffEmail(email || "");
+
+    const res = await fetch(`${FIREBASE_DB}/departments/${deptID}/departmentName.json`);
+    if (res.ok) {
+      const dept = await res.json();
+      setDepartmentName(dept || "Unknown Department");
+    }
+  };
 
   const handleLogout = async () => {
-    try {
-      await AsyncStorage.removeItem('userEmail');
-    } catch (e) {
-      console.warn('Failed clearing userEmail', e);
-    }
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Login' }],
-    });
+    await AsyncStorage.clear();
+    navigation.reset({ index: 0, routes: [{ name: "Login" }] });
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>My Profile</Text>
+      <Text style={styles.title}>Staff Profile</Text>
 
       <View style={styles.profileIconContainer}>
         <Ionicons name="person-circle-outline" size={90} color="#5044ec" />
       </View>
 
       <View style={styles.infoRow}>
-        <Ionicons name="person-outline" size={24} color="#5044ec" style={styles.icon} />
-        <Text style={styles.infoText}>{name || '—'}</Text>
+        <Ionicons name="person-outline" size={24} color="#5044ec" />
+        <Text style={styles.infoText}>{staffName}</Text>
       </View>
-      <View style={styles.separator} />
 
       <View style={styles.infoRow}>
-        <Ionicons name="mail-outline" size={24} color="#5044ec" style={styles.icon} />
-        <Text style={styles.infoText}>{email || '—'}</Text>
+        <Ionicons name="mail-outline" size={24} color="#5044ec" />
+        <Text style={styles.infoText}>{staffEmail}</Text>
       </View>
-      <View style={styles.separator} />
 
-      <TouchableOpacity style={styles.editButton} onPress={() => navigation.navigate('EditProfile')}>
+      <View style={styles.infoRow}>
+        <Ionicons name="briefcase-outline" size={24} color="#5044ec" />
+        <Text style={styles.infoText}>{departmentName}</Text>
+      </View>
+
+      <TouchableOpacity
+        style={styles.editButton}
+        onPress={() => navigation.navigate("EditProfile")}
+      >
         <Text style={styles.editButtonText}>Edit Profile</Text>
       </TouchableOpacity>
 
@@ -95,6 +71,7 @@ export default function ProfileScreen({ navigation }) {
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

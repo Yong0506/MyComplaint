@@ -1,84 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useState, useEffect } from "react";
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Ionicons } from "@expo/vector-icons";
+
+const FIREBASE_DB = "https://mycomplaint-b2805-default-rtdb.asia-southeast1.firebasedatabase.app";
 
 export default function EditProfileScreen({ navigation }) {
-  const [name, setName] = useState('');
-  const [userKey, setUserKey] = useState(null);
+  const [name, setName] = useState("");
+  const [contact, setContact] = useState("");
+  const [staffID, setStaffID] = useState(null);
 
   useEffect(() => {
-    const loadProfile = async () => {
-      try {
-        const storedEmail = await AsyncStorage.getItem('userEmail');
-        if (!storedEmail) return;
-
-        const FIREBASE_DB = 'https://mycomplaint-b2805-default-rtdb.asia-southeast1.firebasedatabase.app';
-        const emailKey = encodeURIComponent(storedEmail);
-
-        const mapRes = await fetch(`${FIREBASE_DB}/emails/${emailKey}.json`);
-        if (mapRes.ok) {
-          const mapped = await mapRes.json();
-          if (mapped) {
-            setUserKey(mapped);
-            const userRes = await fetch(`${FIREBASE_DB}/users/${mapped}.json`);
-            if (userRes.ok) {
-              const userData = await userRes.json();
-              if (userData && userData.name) setName(userData.name);
-              return;
-            }
-          }
-        }
-
-        const allRes = await fetch(`${FIREBASE_DB}/users.json`);
-        if (!allRes.ok) return;
-        const all = await allRes.json();
-        if (!all) return;
-        for (const k of Object.keys(all)) {
-          const u = all[k];
-          if (u && u.email === storedEmail) {
-            setUserKey(k);
-            if (u.name) setName(u.name);
-            return;
-          }
-        }
-      } catch (err) {
-        console.error('Failed to load profile for edit', err);
-      }
-    };
-
-    loadProfile();
+    loadData();
   }, []);
 
+  const loadData = async () => {
+    const id = await AsyncStorage.getItem("staffID");
+    setStaffID(id);
+
+    const res = await fetch(`${FIREBASE_DB}/agency_users/${id}.json`);
+    const staff = await res.json();
+
+    setName(staff.name);
+    setContact(staff.contactNo || "");
+  };
+
   const handleSave = async () => {
-    if (!name || name.trim().length === 0) {
-      Alert.alert('Invalid name', 'Please enter your name');
-      return;
-    }
-    try {
-      const FIREBASE_DB = 'https://mycomplaint-b2805-default-rtdb.asia-southeast1.firebasedatabase.app';
-      if (!userKey) {
-        Alert.alert('Save failed', 'User key not found.');
-        return;
-      }
+    if (!staffID) return;
 
-      const res = await fetch(`${FIREBASE_DB}/users/${userKey}/name.json`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(name),
-      });
-      if (!res.ok) {
-        const txt = await res.text();
-        console.error('Failed to save name', txt);
-        Alert.alert('Save failed', 'Could not update profile.');
-        return;
-      }
+    const updates = {
+      name,
+      contactNo: contact,
+    };
 
-      Alert.alert('Saved', 'Profile updated successfully');
+    const res = await fetch(`${FIREBASE_DB}/agency_users/${staffID}.json`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updates),
+    });
+
+    if (res.ok) {
+      await AsyncStorage.setItem("staffName", name);
+      Alert.alert("Saved", "Profile updated.");
       navigation.goBack();
-    } catch (err) {
-      console.error('Save error', err);
-      Alert.alert('Save failed', 'An unexpected error occurred.');
+    } else {
+      Alert.alert("Error", "Failed to update profile.");
     }
   };
 
@@ -90,20 +56,19 @@ export default function EditProfileScreen({ navigation }) {
 
       <Text style={styles.title}>Edit Profile</Text>
 
-      <View style={styles.profileIconContainer}>
-        <Ionicons name="person-circle-outline" size={90} color="#5044ec" />
-      </View>
+      <TextInput
+        style={styles.input}
+        placeholder="Staff Name"
+        value={name}
+        onChangeText={setName}
+      />
 
-      <View style={styles.infoRow}>
-        <Ionicons name="person-outline" size={24} color="#5044ec" style={styles.icon} />
-        <TextInput
-          style={styles.input}
-          value={name}
-          onChangeText={setName}
-          placeholder="Enter your name"
-          placeholderTextColor="#999"
-        />
-      </View>
+      <TextInput
+        style={styles.input}
+        placeholder="Contact Number"
+        value={contact}
+        onChangeText={setContact}
+      />
 
       <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
         <Text style={styles.saveText}>Save</Text>
