@@ -58,6 +58,14 @@ export default function ComplaintListsScreen({ navigation, route }) {
     }
   };
 
+  const goBackSafe = () => {
+    if (navigation.canGoBack && navigation.canGoBack()) {
+      navigation.goBack();
+    } else {
+      navigation.navigate("Main"); // fallback if stack is empty
+    }
+  };
+
   const renderItem = ({ item }) => (
     <View>
       <View style={styles.line} />
@@ -91,13 +99,18 @@ export default function ComplaintListsScreen({ navigation, route }) {
     </View>
   );
 
+
+
   const filteredSearch = complaints.filter(c =>
     c.title.toLowerCase().includes(searchText.toLowerCase())
   );
 
+
+
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+      <TouchableOpacity style={styles.backButton} onPress={goBackSafe}>
         <Ionicons name="arrow-back" size={28} color="#5044ec" />
       </TouchableOpacity>
 
@@ -134,8 +147,8 @@ export default function ComplaintListsScreen({ navigation, route }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, paddingTop: 60, paddingHorizontal: 20 },
-  backButton: { position: "absolute", top: 65, left: 25 },
-  title: { fontSize: 26, fontWeight: "bold", textAlign: "center", color: "#5044ec" },
+  backButton: { position: "absolute", top: 65, left: 25,zIndex:10,elevation:10 },
+  title: { fontSize: 26, fontWeight: "bold", textAlign: "center", color: "#5044ec" ,zIndex:1},
   searchContainer: {
     flexDirection: 'row',
     backgroundColor: '#f2f2f2',

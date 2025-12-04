@@ -59,7 +59,6 @@ function MainTabs() {
       })}
     >
       <Tab.Screen name="Home" component={MainScreen} />
-      <Tab.Screen name="Complaint" component={ComplaintScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
