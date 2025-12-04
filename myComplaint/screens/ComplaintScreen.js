@@ -22,7 +22,16 @@ export default function ComplaintScreen() {
   const insets = useSafeAreaInsets();
   const [timestamp, setTimestamp] = useState('');
 
+  const [loadingAgency, setLoadingAgency] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const agencyFullNames = {
+    dept_dbkl: "Kuala Lumpur City Hall",
+    dept_kdebwm: "KDEB Waste Management",
+    dept_pcb: "Public Complaints Bureau",
+    dept_rapidkl: "Rapid KL",
+    dept_works: "Ministry of Works",
+  };
 
   // const handleUseCamera = async () => {
   //   try {
@@ -88,7 +97,7 @@ export default function ComplaintScreen() {
 
       setLoading(true);
 
-      const response = await fetch("http://192.168.1.9:5000/blur", {
+      const response = await fetch("http://192.168.1.10:5000/blur", {
         method: "POST",
         body: formData,
         headers: {
@@ -126,6 +135,38 @@ export default function ComplaintScreen() {
     } catch (error) {
       console.error("Error taking photo:", error);
     }
+  };
+
+  const predictAgency = async () => {
+    if (!message.trim()) {
+      alert("Please enter complaint description first.");
+      return;
+    }
+
+    setLoadingAgency(true);
+
+    try {
+      const res = await fetch("http://192.168.1.10:5000/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ description: message }),
+      });
+
+      const data = await res.json();
+
+      if (!data.agency) {
+        alert("AI could not determine agency.");
+        setLoadingAgency(false);
+        return;
+      }
+
+      setAgency(data.agency);
+    } catch (err) {
+      console.log(err);
+      alert("Error connecting to AI.");
+    }
+
+    setLoadingAgency(false);
   };
 
   useEffect(() => {
@@ -399,7 +440,7 @@ export default function ComplaintScreen() {
         <Text style={styles.buttonText}>Take Photo</Text>
       </TouchableOpacity>
 
-      <View style={styles.dropdownContainer}>
+      {/* <View style={styles.dropdownContainer}>
         <RNPickerSelect
           onValueChange={(value) => setAgency(value)}
           placeholder={{ label: 'Select Government Agency', value: null }}
@@ -415,6 +456,18 @@ export default function ComplaintScreen() {
             inputIOS: styles.dropdown,
           }}
         />
+      </View> */}
+
+      <View style={styles.dropdownContainer}>
+        <TouchableOpacity style={styles.aiButton} onPress={predictAgency}>
+          <Text style={styles.aiButtonText}>Auto Detect Agency</Text>
+        </TouchableOpacity>
+
+        {agency ? (
+          <Text style={styles.detectedText}>
+            Detected Agency: {agencyFullNames[agency] || agency}
+          </Text>
+        ) : null}
       </View>
 
       <TouchableOpacity style={styles.sendButton} onPress={handleSend}>
@@ -560,6 +613,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 10,
     backgroundColor: '#fff',
+    paddingTop: 5,
+    paddingBottom: 10,
   },
   dropdown: {
     fontSize: 16,
@@ -577,4 +632,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  aiButton: {
+    backgroundColor: "#5044ec",
+    padding: 12,
+    borderRadius: 8,
+    marginTop: 10,
+    alignItems: "center"
+  },
+  aiButtonText: {
+    color: "#fff",
+    fontSize: 15,
+    fontWeight: "bold"
+  },
+  detectedText: {
+    marginTop: 10,
+    fontSize: 15,
+    color: "#333"
+  }
 });

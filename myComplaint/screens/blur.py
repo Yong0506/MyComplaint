@@ -4,7 +4,15 @@ import io
 import cv2
 import numpy as np
 
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+import re
+
 app = Flask(__name__)
+
+# -----------------------------------------
+# Face and License Plate Detection Setup
+# -----------------------------------------
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 plate_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_russian_plate_number.xml")
@@ -106,6 +114,74 @@ def blur_image():
     output.seek(0)
 
     return send_file(output, mimetype="image/jpeg")
+
+# -----------------------------------------
+# Face and License Plate Detection Setup
+# -----------------------------------------
+
+
+
+# -----------------------------------------
+# AI Prediction Endpoint
+# -----------------------------------------
+agency_keywords = {
+    "dept_dbkl": [
+        "road", "jalan", "street light", "lampu jalan", "pothole", "park", "city", "drain"
+    ],
+    "dept_kdebwm": [
+        "rubbish", "trash", "sampah", "garbage", "waste", "bin"
+    ],
+    "dept_rapidkl": [
+        "bus", "lrt", "mrt", "train", "station", "transit", "public transport"
+    ],
+    "dept_works": [
+        "highway", "bridge", "construction", "infrastructure", "federal road"
+    ],
+    "dept_pcb": [
+        "complaint", "government service", "not sure", "general issue"
+    ]
+}
+
+agency_names = list(agency_keywords.keys())
+agency_corpus = [" ".join(words) for words in agency_keywords.values()]
+
+vectorizer = TfidfVectorizer()
+agency_vectors = vectorizer.fit_transform(agency_corpus)
+
+def is_spam(text):
+    spam_words = ["buy now", "free money", "loan", "promo", "click here"]
+    count = sum(word in text for word in spam_words)
+    return count >= 2
+
+@app.route("/predict", methods=["POST"])
+def predict():
+    data = request.json
+    message = data.get("description", "").lower()
+
+    print("Received:", message)
+
+    if not message.strip():
+        return jsonify({"agency": "dept_pcb"})
+
+    if is_spam(message):
+        return jsonify({"agency": "dept_pcb"})
+
+    for agency, words in agency_keywords.items():
+        score = sum(message.count(w) for w in words)
+        if score >= 2:
+            return jsonify({"agency": agency})
+
+    msg_vec = vectorizer.transform([message])
+    sims = cosine_similarity(msg_vec, agency_vectors)[0]
+
+    best_index = sims.argmax()
+    best_agency = agency_names[best_index]
+
+    return jsonify({"agency": best_agency})
+
+# -----------------------------------------
+# AI Prediction Endpoint
+# -----------------------------------------
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

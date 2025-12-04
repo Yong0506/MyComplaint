@@ -85,3 +85,4 @@ export default function App() {
 
 // run npx expo start
 // run python screens\\blur.py
+// run python screens\\predict.py

@@ -49,6 +49,8 @@ export default function RegisterScreen({ navigation }) {
     const trimmedPassword = password;
     const trimmedConfirm = confirmPassword;
 
+    const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/;
+
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let valid = true;
 
@@ -70,6 +72,9 @@ export default function RegisterScreen({ navigation }) {
       valid = false;
     } else if (trimmedPassword.length < 6) {
       setPasswordError('Password must be at least 6 characters');
+      valid = false;
+    } else if (!strongPassword.test(trimmedPassword)) {
+      setPasswordError('Password must have upper, lower, number, and symbol');
       valid = false;
     }
 

@@ -55,6 +55,8 @@ export default function ComplaintListsScreen({ navigation, route }) {
         photoLocation: data[key].photoLocation,
         status: data[key].status,
         userEmail: data[key].userEmail,
+        resolvedTime: data[key].resolvedTime || 'N/A',
+        comments: data[key].comments ? Object.values(data[key].comments) : [],
       }));
 
       const userComplaints = allComplaints.filter(
