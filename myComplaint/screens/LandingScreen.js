@@ -8,9 +8,8 @@ export default function LandingScreen({ navigation }) {
       <Text style={styles.appName}>My Complaint</Text>
 
       <Text style={styles.description}>
-        Easily report any public issue.{"\n"}
-        We make sure it reaches the right agency.{"\n"}
-        Fast. Simple. Transparent.
+        Your place to response to a complaint.{"\n"}
+        Fast & Simple{"\n"}
       </Text>
 
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
