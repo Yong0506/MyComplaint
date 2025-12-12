@@ -85,6 +85,16 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.buttonText}>History</Text>
           <Text style={styles.arrow}>{'>'}</Text>
         </TouchableOpacity>
+
+        <View style={styles.line} />
+
+        <TouchableOpacity
+          style={styles.listButton}
+          onPress={() => navigation.navigate('Report')}
+        >
+          <Text style={styles.buttonText}>View Report</Text>
+          <Text style={styles.arrow}>{'>'}</Text>
+        </TouchableOpacity>
         <View style={styles.line} />
       </View>
     </View>

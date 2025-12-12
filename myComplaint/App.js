@@ -14,6 +14,7 @@ import ComplaintScreen from './screens/ComplaintScreen';
 import ComplaintListsScreen from './screens/ComplaintListsScreen';
 import EditProfileScreen from './screens/EditProfileScreen';
 import ViewComplaintScreen from './screens/ViewComplaint';
+import ReportScreen from './screens/ReportScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -77,6 +78,7 @@ export default function App() {
         <Stack.Screen name="ComplaintLists" component={ComplaintListsScreen} options={{ headerShown: false }} />
         <Stack.Screen name="ViewComplaint" component={ViewComplaintScreen} options={{ headerShown: false }} />
         <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Report" component={ReportScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

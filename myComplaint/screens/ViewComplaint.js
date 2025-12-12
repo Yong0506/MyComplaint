@@ -21,6 +21,7 @@ export default function ViewComplaintScreen({ navigation, route }) {
     address = '',
     status = '',
     resolvedTime = '',
+    resolvedImage = null,
     comments = [],
   } = complaint;
 
@@ -146,6 +147,14 @@ export default function ViewComplaintScreen({ navigation, route }) {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Resolved Time</Text>
           <Text style={styles.sectionText}>{resolvedTime || 'N/A'}</Text>
+        </View>
+      )}
+
+      {status === 'resolved' && resolvedImage ? (
+        <Image source={{ uri: resolvedImage }} style={styles.photo} resizeMode="cover" />
+      ) : (
+        <View style={styles.noPhoto}>
+          <Text style={styles.noPhotoText}>No photo provided</Text>
         </View>
       )}
 
